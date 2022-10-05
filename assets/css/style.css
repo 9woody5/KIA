@@ -3,6 +3,26 @@
 /*반응형, 브라우저 크기가 767px 이하일때*/
 /*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
 @font-face {
+  font-family: "KIA";
+  src: url(../fonts/KiaSignatureLight.woff) format("woff");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "KIA";
+  src: url(../fonts/KiaSignatureRegular.woff) format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "KIA";
+  src: url(../fonts/KiaSignatureFixRegular.woff) format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "KIA";
+  src: url(../fonts/KiaSignatureBold.woff) format("woff");
+  font-weight: 600;
+}
+@font-face {
   font-family: "Nekst";
   src: url(../fonts/4009e71aaf.woff2) format("woff2");
   font-weight: 400;
@@ -52,6 +72,7 @@
 
 html, body {
   height: 100%;
+  letter-spacing: -0.03em;
 }
 
 img, picture, video, canvas, svg {
@@ -114,7 +135,7 @@ table {
 }
 
 body {
-  font-family: "Nekst";
+  font-family: "Nekst", "KIA";
   font-size: 14px;
   line-height: 20px;
   color: #fff;
@@ -246,6 +267,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .header .gnb-area .gnb-item {
+  font-family: "KIA";
   margin-right: 40px;
   font-weight: 500;
   transition: opacity 0.3s cubic-bezier(0.32, 0.94, 0.6, 1);
@@ -399,6 +421,9 @@ body::-webkit-scrollbar-thumb {
 .header .group-menu .address-list {
   flex: 1;
 }
+.header .group-menu .address-item {
+  font-family: "KIA";
+}
 .header .group-menu .address-item .title {
   font-size: 12px;
   display: block;
@@ -466,7 +491,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #595a7a;
+  background: #fff;
   color: #02002d;
   transition: 0.5s cubic-bezier(0.25, 0.74, 0.22, 0.99);
 }
@@ -485,7 +510,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .header .group-menu .lang-area > a.active {
-  background: #82bc48;
+  background: rgba(27, 70, 122, 0.844);
   color: #fff;
   font-weight: 500;
 }
@@ -548,9 +573,10 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .header .group-menu .menu-area .menu-list .menu-item {
+  font-family: "KIA";
   font-size: 40px;
   line-height: 43px;
-  font-weight: 900;
+  font-weight: 400;
 }
 .header .group-menu .menu-area .menu-list .menu-item:not(:first-child) {
   margin-top: 30px;
@@ -567,7 +593,8 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .header .group-menu .menu-area .menu-list .menu-item.green {
-  color: #82bc48;
+  color: rgba(27, 70, 122, 0.844);
+  font-weight: 600;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .header .group-menu .menu-area .menu-list .menu-item {
@@ -744,6 +771,7 @@ body::-webkit-scrollbar-thumb {
   font-size: clamp(63px, 20vw, 240px);
   padding: 12vw 0;
   overflow: hidden;
+  letter-spacing: -0.05em;
 }
 @media (max-width: 767px) {
   .text-scroll {
@@ -753,8 +781,7 @@ body::-webkit-scrollbar-thumb {
 .text-scroll .txt-wrap em {
   color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(255, 255, 255, 0.8);
-  -webkit-text-fill-color: #000;
+  -webkit-text-stroke-color: #fff;
   margin: 0 3vw;
 }
 .text-scroll .row1 {
@@ -804,6 +831,7 @@ body::-webkit-scrollbar-thumb {
   line-height: 1.2;
   font-weight: 700;
   color: #fff;
+  font-family: "KIA";
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .sc-data .data-item h3 {
@@ -843,8 +871,11 @@ body::-webkit-scrollbar-thumb {
     text-align: left;
   }
 }
+.sc-data .data-item:nth-child(even) h3 {
+  color: #fff;
+}
 .sc-data .data-item:nth-child(even) .desc {
-  color: #82bc48;
+  color: rgba(27, 70, 122, 0.844);
 }
 
 .common-head {
@@ -869,8 +900,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .sc-events {
-  padding: 0 50px;
-  padding-top: 100px;
+  padding: 0 50px 40px;
+  padding-top: 40px;
   position: relative;
 }
 @media (max-width: 767px) {
@@ -891,6 +922,8 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   padding: 3.2rem 0;
   position: relative;
+}
+.sc-events .events-item:not(:last-child) {
   border-bottom: 1px solid #7f819b;
 }
 @media (max-width: 767px) {
@@ -1178,7 +1211,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .sc-news {
-  margin: 140px auto;
+  margin: 70px auto;
   position: relative;
   overflow: hidden;
   padding: 0 50px;
@@ -1220,7 +1253,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .sc-news .swiper-slide:hover {
-  background: rgba(206, 128, 128, 0.337254902);
+  background: rgba(27, 70, 122, 0.844);
 }
 .sc-news .swiper-slide a figure {
   height: 272px;

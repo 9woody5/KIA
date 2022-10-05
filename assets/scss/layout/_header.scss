@@ -55,6 +55,7 @@
             }
         }
         .gnb-item{
+            font-family: 'KIA';
             margin-right: 40px;
             font-weight: 500;
             transition: opacity .3s cubic-bezier(.32,.94,.6,1);
@@ -195,6 +196,7 @@
             flex: 1;
         }
         .address-item{
+            font-family: 'KIA';
             .title{
                 font-size: 12px;
                 display: block;
@@ -236,7 +238,7 @@
                 align-items: center;
                 justify-content: center;
                 border-radius: 50%;
-                background: #595a7a;
+                background: #fff;
                 color: #02002d;
                 transition: .5s cubic-bezier(.25,.74,.22,.99);
                 @include tablet{
@@ -248,7 +250,7 @@
                     font-size: 12px;
                 }
                 &.active{
-                    background: #82bc48;
+                    background: rgba(27, 70, 122, 0.844);
                     color: #fff;
                     font-weight: 500;
                 }
@@ -293,9 +295,10 @@
             }
             .menu-list{
                 .menu-item{
+                    font-family: 'KIA';
                     font-size: 40px;
                     line-height: 43px;
-                    font-weight: 900;
+                    font-weight: 400;
                     &:not(:first-child){
                         margin-top: 30px;
                         @include tablet{
@@ -306,7 +309,7 @@
                             margin-top: 10px;
                         }
                     }
-                    &.green{color: #82bc48;}
+                    &.green{color: rgba(27, 70, 122, 0.844); font-weight: 600;}
                     @include tablet{
                         font-size: 5vw;
                     }

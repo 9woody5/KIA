@@ -40,6 +40,8 @@
     font-size: clamp(63px, 20vw, 240px);
     padding: 12vw 0;
     overflow: hidden;
+    // font-family: 'KIA';
+    letter-spacing: -0.05em;
     @include mobile{
         padding-bottom: 50px;
     }
@@ -47,8 +49,7 @@
         em{
             color: transparent;
             -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: rgba(255,255,255,.8);
-            -webkit-text-fill-color: #000;
+            -webkit-text-stroke-color: #fff;
             margin: 0 3vw;
         }
     }
@@ -91,6 +92,7 @@
             line-height: 1.2;
             font-weight: 700;
             color: #fff;
+            font-family: 'KIA';
             @include tablet{
                 font-size: 25px;
                 line-height: 3rem;
@@ -115,8 +117,11 @@
                 align-self: flex-start;
                 text-align: left;
             }
+            h3{
+                color: #fff;
+            }
             .desc{
-                color: #82bc48;
+                color: rgba(27, 70, 122, 0.844);
             }
         }
     }
@@ -174,8 +179,8 @@
     // }
 }
 .sc-events{
-    padding: 0 50px;
-    padding-top: 100px;
+    padding: 0 50px 40px;
+    padding-top: 40px;
     position: relative;
     @include mobile{
         padding: 0 6vw;
@@ -191,7 +196,7 @@
         display: flex;
         padding: 3.2rem 0;
         position: relative;
-        border-bottom: 1px solid #7f819b;
+        &:not(:last-child){ border-bottom: 1px solid #7f819b; }
         @include mobile{
             flex-direction: column;
             padding: 20px 0;
@@ -444,7 +449,7 @@
     }
 }
 .sc-news{
-    margin: 140px auto;
+    margin: 70px auto;
     position: relative;
     overflow: hidden;
     padding: 0 50px;
@@ -480,7 +485,7 @@
             margin-left: 0;
         }
         &:hover{
-            background: #ce808056;
+            background: rgba(27, 70, 122, 0.844);
         }
         a{
             figure{
