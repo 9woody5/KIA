@@ -1,0 +1,95 @@
+.blind{
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0 0 0 0);
+}
+.landing-page{
+    // display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #02002d;
+    z-index: 1000;
+    .content-wrap{
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        .content{
+            position: relative;
+            width: 51px;
+            height: 142px;
+            &.c02{
+                margin-left: 9px;
+            }
+            // .panel{
+            //     position: absolute;
+            //     width: calc(100% + 2px);
+            //     height: calc(100% + 2px);
+            //     background-color: #02002d;
+            //     top: -1px;
+            //     left: -1px;
+            //     transition: transform .75s ease-in-out;
+            // }
+        }
+        
+    }
+}
+
+body{
+    font-family: 'Nekst';
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    background: #000;
+    overflow-x: hidden;
+    &.hidden{
+        overflow: hidden;
+        &::-webkit-scrollbar-button{
+            width: 0;
+            height: 0;
+        }
+        &::-webkit-scrollbar-track{
+            background: transparent;
+            opacity: 0;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 0px;
+            background: transparent;
+            opacity: 0;
+        }
+        &::-webkit-scrollbar{
+            width: 0px;
+            opacity: 0;
+        }
+    }
+::-webkit-scrollbar-button{
+            width: 0;
+            height: 0;
+        }
+        ::-webkit-scrollbar-track{
+            background: transparent;
+            opacity: 0;
+        }
+        ::-webkit-scrollbar-thumb{
+            border-radius: 0px;
+            background: transparent;
+            opacity: 0;
+        }
+        ::-webkit-scrollbar{
+            width: 0px;
+            opacity: 0;
+        }
+}
+body::-webkit-scrollbar{width: 5px;}
+body::-webkit-scrollbar-track{background: transparent;}
+body::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: hsla(0,0%,100%,.7);
+}
