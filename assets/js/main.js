@@ -1,28 +1,59 @@
 $(function(){
 
+    let html = '';
+    for (let index = 0; index < 3; index++){
+        html += `<div class="cursor"></div>`
+    }
+    $('.body').append(html)
+
+    $('body').mousemove(function(e){
+        x = e.clientX - 5;
+        y = e.clientY - 5;
+
+        if($('.cursor').hasClass('hover')){
+            x = e.clientX - 25;
+            y = e.clientY - 25;
+        }
+
+        gsap.to('.cursor',{
+            x:x,
+            y:y,
+            duration:0.1,
+            // stagger:0.1,
+        })
+    })
+
+    $('[data-hover]').hover(function(e){
+        $('.cursor').addClass('hover')
+    }, function(){
+        $('.cursor').removeClass('hover')
+    })
+
+
     const load = gsap.timeline({
         paused:true,
         onStart: function(){
             $('body').addClass('hidden')
+            $('.cursor').hide();
         },
         onComplete: function(){
             $('body').removeClass('hidden')
+            $('.cursor').show();
 
         } 
     })
 
+    const video = document.getElementById('main-video');
+
     load.addLabel('label')
-    .to('.page-load .logo',{opacity:1, delay:.2, duration:1},'label')
-    .to('.page-load .logo',{opacity:0, delay:3, duration:2},'label')
-    .to('.page-load',{delay:5, opacity:0, onComplete:function(){$('.page-load').remove(); mainTxt.play();}},'label')
+    .to('.page-load .logo',{opacity:1, delay:.2, duration:2},'label')
+    // .to('.page-load .logo',{opacity:0, delay:3, duration:2},'label')
+    .to('.page-load',{delay:4, opacity:0, onComplete:function(){$('.page-load').remove(); mainTxt.play(); video.play();}},'label')
     load.play();
 
-    var video = document.getElementById('main-video');
-    video.addEventListener("canplay",function(){
-        setTimeout(function(){
-            video.play();
-        }, 9500);
-    });
+
+
+
 
 
 
@@ -66,9 +97,11 @@ $(function(){
         e.preventDefault();
 
         if ($('.group-menu').hasClass('active')) {
+            $(this).addClass('open')
             $('body').addClass('hidden')
 
         } else {
+            $(this).removeClass('open')
             $('body').removeClass('hidden')
         };
     })
@@ -92,8 +125,6 @@ $(function(){
 
 
     //메인비주얼 텍스트
-
-
     gsap.set('.main-txt .txt',{overflow:'hidden'})
     gsap.set('.main-txt .txt span',{yPercent:100})
 

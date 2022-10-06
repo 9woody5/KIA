@@ -370,7 +370,7 @@
             .name{
                 font-size: 40px;
                 line-height: 45px;
-                color:  rgba(66, 66, 66, 0.99);
+                color:  #000;
                 @include tablet{
                     font-size: 50px;
                     line-height: 1.2;
@@ -378,7 +378,7 @@
             }
             &:nth-child(odd){
                 top: 50px;
-                background: rgba(66, 66, 66, 0.99);
+                background: rgba(39, 39, 39, 0.99);
                 color: #fff;
                 .name{color: #fff;}
             }
@@ -422,8 +422,16 @@
             background: #fff;
             opacity: .25;
             transform: scale(0);
-            transition: transform .4s cubic-bezier(.25,.74,.22,.99);
+            transition: transform .4s;
         }
+        &:hover{
+            &::before{
+                width: 100%;
+                height: 100%;
+                transform: scale(1);
+            }
+        }
+        
         i{
             display: inline-block;
             position: absolute;
@@ -432,13 +440,6 @@
             transform: translate(-50%, -50%);
             z-index: 1;
             font-size: 38px;
-        }
-    }
-    .link-more:hover{
-        &::before{
-            width: 100%;
-            height: 100%;
-            transform: scale(1);
         }
     }
 }
@@ -458,7 +459,6 @@
         max-width: 1200px;
         overflow: visible;
         // height: 713px;
-        cursor:grab;
     }
     .swiper-slide{
         padding: 24px 24px 32px;
@@ -479,7 +479,7 @@
             margin-left: 0;
         }
         &:hover{
-            background: rgba(66, 66, 66, 0.99);
+            background: rgba(39, 39, 39, 0.99);
         }
         a{
             figure{

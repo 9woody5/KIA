@@ -23,12 +23,29 @@
         align-items: center;
     }
     .logo{
-        width: 220px; height: 80px;
+        width: 150px; height: 50px;
         opacity: 0;
         path{fill:#000}
     }
 }
 
+.cursor{
+    width: 20px;
+    height: 20px;
+    background: rgba(43, 44, 83, 0.64);
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+    transition: width .2s, height .2s;
+    &.hover{
+        width: 60px; height: 60px;
+    }
+}
+a{cursor: none;}
 body{
     font-family: 'Nekst', 'KIA';
     font-size: 14px;
@@ -36,6 +53,8 @@ body{
     color: #fff;
     background: #000;
     overflow-x: hidden;
+    cursor: none;
+
     &.hidden{
         overflow: hidden;
         &::-webkit-scrollbar-button{

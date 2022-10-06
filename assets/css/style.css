@@ -126,12 +126,35 @@ table {
   align-items: center;
 }
 .page-load .logo {
-  width: 220px;
-  height: 80px;
+  width: 150px;
+  height: 50px;
   opacity: 0;
 }
 .page-load .logo path {
   fill: #000;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(43, 44, 83, 0.64);
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.2s, height 0.2s;
+}
+.cursor.hover {
+  width: 60px;
+  height: 60px;
+}
+
+a {
+  cursor: none;
 }
 
 body {
@@ -141,6 +164,7 @@ body {
   color: #fff;
   background: #000;
   overflow-x: hidden;
+  cursor: none;
 }
 body.hidden {
   overflow: hidden;
@@ -283,7 +307,7 @@ body::-webkit-scrollbar-thumb {
   display: block;
 }
 .header .gnb-area .gnb-item:hover {
-  opacity: 0.3;
+  opacity: 0.7;
 }
 .header .gnb-area .ic-menu {
   margin-left: 50px;
@@ -296,6 +320,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 7px;
   overflow: hidden;
   position: relative;
+  transition: transform 0.3s;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .header .gnb-area .ic-menu .btn {
@@ -327,15 +352,24 @@ body::-webkit-scrollbar-thumb {
   transform: scaleX(0);
   transform-origin: left;
 }
-.header .gnb-area .ic-menu:hover .btn::before {
+.header .gnb-area .ic-menu.open .btn {
+  right: 10px;
+}
+.header .gnb-area .ic-menu.open .btn.row01 {
+  transform: rotate(-45deg) translate(0, 7px);
+}
+.header .gnb-area .ic-menu.open .btn.row02 {
+  transform: rotate(45deg) translate(0, -7px);
+}
+.header .gnb-area .ic-menu.open .btn::before {
   transform: scaleX(0);
   transition-delay: 0s;
 }
-.header .gnb-area .ic-menu:hover .btn:after {
+.header .gnb-area .ic-menu.open .btn:after {
   transform: scaleX(1);
   transition-delay: 0.25s;
 }
-.header .gnb-area .ic-menu:hover .btn:last-child:after {
+.header .gnb-area .ic-menu.open .btn:last-child:after {
   transition-delay: 0.4s;
 }
 .header .group-menu {
@@ -582,7 +616,10 @@ body::-webkit-scrollbar-thumb {
   font-family: "KIA";
   font-size: 40px;
   line-height: 43px;
-  font-weight: 400;
+  font-weight: 600;
+}
+.header .group-menu .menu-area .menu-list .menu-item:hover {
+  color: rgb(116, 116, 116);
 }
 .header .group-menu .menu-area .menu-list .menu-item:not(:first-child) {
   margin-top: 30px;
@@ -598,9 +635,12 @@ body::-webkit-scrollbar-thumb {
     margin-top: 10px;
   }
 }
-.header .group-menu .menu-area .menu-list .menu-item.green {
+.header .group-menu .menu-area .menu-list .menu-item.active {
   color: rgb(68, 68, 68);
   font-weight: 600;
+}
+.header .group-menu .menu-area .menu-list .menu-item.active:hover {
+  color: rgb(33, 25, 82);
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .header .group-menu .menu-area .menu-list .menu-item {
@@ -1134,7 +1174,7 @@ body::-webkit-scrollbar-thumb {
 .sc-movement .movement-list .movement-item .name {
   font-size: 40px;
   line-height: 45px;
-  color: rgba(66, 66, 66, 0.99);
+  color: #000;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .sc-movement .movement-list .movement-item .name {
@@ -1144,7 +1184,7 @@ body::-webkit-scrollbar-thumb {
 }
 .sc-movement .movement-list .movement-item:nth-child(odd) {
   top: 50px;
-  background: rgba(66, 66, 66, 0.99);
+  background: rgba(39, 39, 39, 0.99);
   color: #fff;
 }
 .sc-movement .movement-list .movement-item:nth-child(odd) .name {
@@ -1196,7 +1236,12 @@ body::-webkit-scrollbar-thumb {
   background: #fff;
   opacity: 0.25;
   transform: scale(0);
-  transition: transform 0.4s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+  transition: transform 0.4s;
+}
+.sc-movement .link-more:hover::before {
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
 }
 .sc-movement .link-more i {
   display: inline-block;
@@ -1206,11 +1251,6 @@ body::-webkit-scrollbar-thumb {
   transform: translate(-50%, -50%);
   z-index: 1;
   font-size: 38px;
-}
-.sc-movement .link-more:hover::before {
-  width: 100%;
-  height: 100%;
-  transform: scale(1);
 }
 
 .sc-discover {
@@ -1228,7 +1268,6 @@ body::-webkit-scrollbar-thumb {
 .sc-discover .swiper {
   max-width: 1200px;
   overflow: visible;
-  cursor: grab;
 }
 .sc-discover .swiper-slide {
   padding: 24px 24px 32px;
@@ -1256,7 +1295,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .sc-discover .swiper-slide:hover {
-  background: rgba(66, 66, 66, 0.99);
+  background: rgba(39, 39, 39, 0.99);
 }
 .sc-discover .swiper-slide a figure {
   height: 272px;

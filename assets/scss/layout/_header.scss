@@ -60,7 +60,7 @@
             transition: opacity .3s cubic-bezier(.32,.94,.6,1);
             &:last-child{margin-right: 0;}
             > a{display: block;}
-            &:hover{ opacity: .3; }
+            &:hover{ opacity: .7; }
         }
         .ic-menu{
             margin-left: 50px;
@@ -74,6 +74,7 @@
                 margin-bottom:7px;
                 overflow:hidden;
                 position:relative;
+                transition: transform .3s;
                 @include tablet{
                     width: 40px;
                     height: 4px;
@@ -104,8 +105,16 @@
                     transform-origin: left;
                 }
             }
-            &:hover{
+            &.open{
                 .btn{
+                    // position: relative;
+                    right: 10px;
+                    &.row01{
+                    transform: rotate(-45deg) translate(0,7px);
+                    }
+                    &.row02{
+                    transform: rotate(45deg) translate(0,-7px);
+                    }
                     &::before{
                         transform: scaleX(0);
                         transition-delay: 0s;
@@ -299,7 +308,10 @@
                     font-family: 'KIA';
                     font-size: 40px;
                     line-height: 43px;
-                    font-weight: 400;
+                    font-weight: 600;
+                    &:hover{
+                        color: rgb(116, 116, 116);
+                    }
                     &:not(:first-child){
                         margin-top: 30px;
                         @include tablet{
@@ -310,7 +322,7 @@
                             margin-top: 10px;
                         }
                     }
-                    &.green{color: rgb(68, 68, 68); font-weight: 600;}
+                    &.active{color: rgb(68, 68, 68); font-weight: 600; &:hover{color: rgb(33, 25, 82);}}
                     @include tablet{
                         font-size: 5vw;
                     }
