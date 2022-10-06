@@ -38,12 +38,11 @@
     font-weight: 700;
     white-space: nowrap;
     font-size: clamp(63px, 20vw, 240px);
-    padding: 12vw 0;
+    padding: 12vw 0 8vw;
     overflow: hidden;
-    // font-family: 'KIA';
     letter-spacing: -0.05em;
     @include mobile{
-        padding-bottom: 50px;
+        padding: 70px 0 50px;
     }
     .txt-wrap{
         em{
@@ -77,10 +76,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-top: 100px;
         @include mobile{padding-top: 60px;}
     }
     .data-item{
         height: 40vh;
+        @include tablet{height: 30vh;}
         @include mobile{
             height: 25vh;
             &:not(:last-child){
@@ -91,7 +92,7 @@
             font-size: 19px;
             line-height: 1.2;
             font-weight: 700;
-            color: #fff;
+            color: rgb(124, 124, 124);
             font-family: 'KIA';
             @include tablet{
                 font-size: 25px;
@@ -103,12 +104,10 @@
             }
         }
         .desc{
-            font-size: 10vw;
+            font-size: clamp(60px, 10vw, 150px);
             line-height: 1;
             font-weight: 900;
             color: #fff;
-            @include tablet{font-size: 120px;}
-            @include mobile{font-size: 20vw;}
         }
         &:nth-child(even){
             align-self: flex-end;
@@ -116,12 +115,6 @@
             @include mobile{
                 align-self: flex-start;
                 text-align: left;
-            }
-            h3{
-                color: #fff;
-            }
-            .desc{
-                color: rgba(27, 70, 122, 0.844);
             }
         }
     }
@@ -131,13 +124,13 @@
     font-size: 6vw;
     line-height: 9rem;
     font-weight: 900;
-    margin-bottom: 55px;
+    // margin-bottom: 45px;
     display: flex;
     @include tablet{
         font-size: 5rem;
     }
     @include mobile{
-        font-size: 7vw;
+        font-size: 10vw;
         line-height: 1;
         margin-bottom: 15px;
     }
@@ -178,12 +171,12 @@
     //     }
     // }
 }
-.sc-events{
+.sc-news{
     padding: 0 50px 40px;
     padding-top: 40px;
     position: relative;
     @include mobile{
-        padding: 0 6vw;
+        padding: 4vw 6vw 0;
     }
     .common-inner{
         max-width: 1200px;
@@ -192,15 +185,20 @@
             max-width: 767px;
         }
     }
-    .events-item{
+    .news-item{
+        font-family: 'KIA';
         display: flex;
         padding: 3.2rem 0;
         position: relative;
-        &:not(:last-child){ border-bottom: 1px solid #7f819b; }
+        &:not(:last-child){ border-bottom: 1px solid #fff; }
         @include mobile{
             flex-direction: column;
             padding: 20px 0;
-            // width: 286px;
+        }
+        a{
+            display: flex; 
+            flex: 1;
+            @include mobile{display: block;}
         }
         .img-box{
             width: 237px;
@@ -263,22 +261,10 @@
                 }
                 
             }
-            .venue{
-                display: block;
-                font-size: 14px;
-                line-height: 20px;
-                @include tablet{
-                    font-size: 17px;
-                }
-                @include mobile{
-                    font-size: 4vw;
-                    margin: 3vw 0;
-                }
-                
-            }
             .desc{
                 display: block;
                 font-size: 16px;
+                font-weight: 300;
                 line-height: 20px;
                 margin: 28px 0 0;
                 @include tablet{
@@ -301,16 +287,18 @@
                 margin-left: 2rem;
                 font-size: 19px;
                 margin-bottom: 30px;
+                font-weight: 300;
             }
             @include mobile{
                 font-size: 4vw;
                 margin: 3vw 0;
+                font-weight: 300;
             }
         }
     }
 }
 
-.sc-congrats{
+.sc-movement{
     position: relative;
     background: #000;
     height: 100vh;
@@ -325,7 +313,6 @@
         font-size: clamp(63px, 20vw, 240px);
         padding: 10vw 0;
         overflow: hidden;
-        
         .txt-wrap{
             em{
                 color: transparent;
@@ -346,7 +333,7 @@
             justify-content: flex-end;
         }
     }
-    .group-msg{
+    .group-movement{
         position: absolute;
         top: 0;
         right: 0;
@@ -356,15 +343,19 @@
         align-items: center;
         justify-content: center;
         transform: translateX(100%);
+        @include mobile{
+            transform: translateX(200%);
+        }
     }
-    .msg-list{
+    .movement-list{
         display: flex;
-        .msg-item{
+        .movement-item{
             width: 329px;
             position: relative;
             height: 386px;
             border-radius: 10px;
             font-weight: 700;
+            font-family: 'KIA';
             padding: 24px;
             margin-right: 70px;
             box-sizing: border-box;
@@ -373,10 +364,13 @@
             @include tablet{
                 width: 460px; height: 540px;
             }
+            @include mobile{
+                width: 300px; height: 400px;
+            }
             .name{
                 font-size: 40px;
                 line-height: 45px;
-                color:  #40449c;
+                color:  rgba(66, 66, 66, 0.99);
                 @include tablet{
                     font-size: 50px;
                     line-height: 1.2;
@@ -384,7 +378,7 @@
             }
             &:nth-child(odd){
                 top: 50px;
-                background: #40449c;
+                background: rgba(66, 66, 66, 0.99);
                 color: #fff;
                 .name{color: #fff;}
             }
@@ -392,14 +386,14 @@
                 font-size: 16px;
                 display: block;
                 margin: 14px 0 0;
-                font-weight: 400;
+                font-weight: 600;
                 @include tablet{font-size: 22px; margin-top: 25px;}
             }
             .content{
                 font-size: 16px;
                 line-height: 22px;
                 margin-top: 72px;
-                font-weight: 700;
+                font-weight: 300;
                 @include tablet{
                     font-size: 22px;
                     line-height: 1.2;
@@ -414,7 +408,7 @@
         width: 93px;
         height: 93px;
         position: relative;
-        background: #82bc48;
+        background: rgba(66, 66, 66, 0.99);
         border-radius: 50%;
         &::before{
             content: '';
@@ -448,14 +442,14 @@
         }
     }
 }
-.sc-news{
-    margin: 70px auto;
+.sc-discover{
+    margin: 40px auto;
     position: relative;
     overflow: hidden;
     padding: 0 50px;
     @include mobile{
-        margin: 130px 0 8vw;
-        padding: 0 6vw;
+        margin: 80px 0 8vw;
+        padding: 0 10px;
     }
     // .common-head span{
     //     left: 30vw;
@@ -475,17 +469,17 @@
         height: 590px;
         &:not(:last-child){margin-right: 20px;}
         @include tablet{
-            width: 767px; height: 643px;
+            width: 550px; height: 643px;
         }
         @include mobile{
-            width: 90vw;
-            // width: 250px;
-            height: 100vw;
-            padding: 5vw 5vw 8vw;
+            // width: 300px;
+            width: 350px;
+            height: 420px;
+            padding: 16px 16px 25px;
             margin-left: 0;
         }
         &:hover{
-            background: rgba(27, 70, 122, 0.844);
+            background: rgba(66, 66, 66, 0.99);
         }
         a{
             figure{
@@ -495,7 +489,7 @@
                 flex: 1;
                 @include mobile{
                     // width: 100vw;
-                    height: 40vw;
+                    height: 200px;
                 }
                 img{
                     width: 100%;
@@ -507,22 +501,23 @@
             }
             .txt-box{
                 flex: 1;
-                .date{
+                font-family: 'KIA';
+                .title{
                     display: block;
                     font-size: 16px;
-                    line-height: 22px;
+                    line-height: 1;
                     margin-bottom: 12px;
-                    font-weight: 400;
+                    font-weight: 600;
                     @include mobile{
-                        font-size: 4vw;
+                        font-size: 15px;
                     }
                 }
-                .title{
+                .desc{
                     font-size: 32px;
                     line-height: 42px;
-                    font-weight: 700;
+                    font-weight: 300;
                     @include mobile{
-                        font-size: 6vw;
+                        font-size: 22px;
                         line-height: 1.2;
                     }
                 }

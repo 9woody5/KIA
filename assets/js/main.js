@@ -1,14 +1,40 @@
 $(function(){
 
-    gsap.to('.landing-page',{
-        delay:2,
-        opacity:0,
-        onComplete:function(){ //콜백
-            $('.landing-page').remove()
-            mainTxt.play()
+    const load = gsap.timeline({
+        paused:true,
+        onStart: function(){
+            $('body').addClass('hidden')
         },
+        onComplete: function(){
+            $('body').removeClass('hidden')
 
+        } 
     })
+
+    load.addLabel('label')
+    .to('.page-load .logo',{opacity:1, delay:.2, duration:1},'label')
+    .to('.page-load .logo',{opacity:0, delay:3, duration:2},'label')
+    .to('.page-load',{delay:5, opacity:0, onComplete:function(){$('.page-load').remove(); mainTxt.play();}},'label')
+    load.play();
+
+    var video = document.getElementById('main-video');
+    video.addEventListener("canplay",function(){
+        setTimeout(function(){
+            video.play();
+        }, 9500);
+    });
+
+
+
+    // gsap.to('.page-load',{
+    //     delay:2,
+    //     opacity:0,
+    //     onComplete:function(){ //콜백
+    //         $('.page-load').remove()
+    //         mainTxt.play()
+    //     },
+
+    // })
 
 
     //햄버거 메뉴
@@ -147,13 +173,37 @@ $(function(){
 
     })
 
+    //discover 영역
+
+    $('[data-y]').each(function(i,l){
+        gsap.from(l,{
+            scrollTrigger:{
+                trigger:l,
+                start:"0% 100%",
+                // end:"bottom 80%",
+                // markers:true,
+                // scrub:1
+            },
+            opacity:0,
+            yPercent:20,
+        })
+    })
+
+    var swiper = new Swiper(".sc-discover .swiper", {
+        slidesPerView: 'auto',
+        freeMode: true,
+      });
+
+
+
+    //sc-movement 영역
 
     ScrollTrigger.matchMedia({
     // large
-    "(max-width: 1920px)": function() {
-        const cong = gsap.timeline({
+    "(min-width: 1023px)": function() {
+        const movement = gsap.timeline({
             scrollTrigger:{
-                trigger: '.sc-congrats',
+                trigger: '.sc-movement',
                 start:"top top", //트리거, 윈도우 시작점이 만나야 실행`
                 end:"bottom 40%", //bottom top은 기본값, scrub있을 때만 변경 필요
                 // markers:true,
@@ -161,50 +211,47 @@ $(function(){
                 pin:true
             },
         })
-    cong.to('.sc-congrats .group-msg',{xPercent:-100},'m1')
+    movement.to('.sc-movement .group-movement',{xPercent:-120})
     },
 
     // medium
-    // "(min-width: 768px) and (max-width: 1023px)": function() {
-    //     const cong = gsap.timeline({
-    //         scrollTrigger:{
-    //             trigger: '.sc-congrats',
-    //             start:"top top", //트리거, 윈도우 시작점이 만나야 실행`
-    //             end:"bottom bottom", //bottom top은 기본값, scrub있을 때만 변경 필요
-    //             markers:true,
-    //             scrub:1,
-    //             pin:true
-    //         },
-    //     })
-    //     cong.to('.sc-congrats .group-msg',{xPercent:-100},'m1')
-    //     },
+    "(min-width: 768px) and (max-width: 1023px)": function() {
+        const movement = gsap.timeline({
+            scrollTrigger:{
+                trigger: '.sc-movement',
+                start:"top top", //트리거, 윈도우 시작점이 만나야 실행`
+                end:"+=200%", //bottom top은 기본값, scrub있을 때만 변경 필요
+                // markers:true,
+                scrub:1,
+                pin:true
+            },
+        })
+        movement.to('.sc-movement .group-movement',{xPercent:-170})
+        },
     // small
-    "(max-width: 599px)": function() {
+    "(min-width: 320px) and (max-width: 767px)": function() {
+        const movement = gsap.timeline({
+                    scrollTrigger:{
+                        trigger: '.sc-movement',
+                        start:"top top", //트리거, 윈도우 시작점이 만나야 실행`
+                        end:"+=200%", //bottom top은 기본값, scrub있을 때만 변경 필요
+                        // markers:true,
+                        scrub:1,
+                        pin:true
+                    },
+                })
+                movement.to('.sc-movement .group-movement',{xPercent:-350})
     }
     }); 
 
-    
     // cong.addLabel('m1')
-    // .to('.sc-congrats .row1',{xPercent:-50},'m1')
-    // .to('.sc-congrats .row2',{xPercent:50},'m1')
-    // .to('.sc-congrats .group-msg',{xPercent:-100},'m1')
+    // .to('.sc-movement .row1',{xPercent:-50},'m1')
+    // .to('.sc-movement .row2',{xPercent:50},'m1')
+    // .to('.sc-movement .group-movement',{xPercent:-100},'m1')
 
 
 
-
-    var swiper = new Swiper(".sc-news .swiper", {
-        slidesPerView: 'auto',
-        // spaceBetween: 30,
-        // freeMode: {
-        //     enabled: true,
-        //     sticky: true
-        //   },
-      });
-
-
-      //데이터 영역
-
-      
+    //데이터 영역
     //gsap
 
 
@@ -214,12 +261,4 @@ $(function(){
     //     paused:true
     // })
 
-    
-
-    const motion1 = gsap.to('.txt-wrap p',{
-        stagger:0.1,
-        yPercent:-100,
-        paused:true
-    });
-    
 });

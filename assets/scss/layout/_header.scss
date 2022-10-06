@@ -17,7 +17,6 @@
         }
         @include mobile{
             width: 100%;
-            position: absolute;
             padding: 25px 20px 25px 5px;
         }
         &.hide{
@@ -202,7 +201,7 @@
                 display: block;
                 line-height: 18px;
                 margin-bottom: 5px;
-                color: #595a7a;
+                color: rgb(124, 124, 124);
                 @include tablet{
                     font-size: 14px;
                     margin-bottom: 8px;
@@ -232,6 +231,7 @@
             @include tablet{margin-top: 45px;}
             @include mobile{margin-top: 30px;}
             > a{
+                font-family: 'KIA';
                 width: 43px;
                 height: 43px;
                 display: flex;
@@ -239,7 +239,7 @@
                 justify-content: center;
                 border-radius: 50%;
                 background: #fff;
-                color: #02002d;
+                color: #000;
                 transition: .5s cubic-bezier(.25,.74,.22,.99);
                 @include tablet{
                     width: 50px; height: 50px;
@@ -250,7 +250,7 @@
                     font-size: 12px;
                 }
                 &.active{
-                    background: rgba(27, 70, 122, 0.844);
+                    background: rgb(68, 68, 68);
                     color: #fff;
                     font-weight: 500;
                 }
@@ -287,6 +287,7 @@
                 display: flex;
                 order: -1;
                 margin-left: 0;
+                align-self: flex-start;
             }
             @include mobile{
                 display: flex;
@@ -309,7 +310,7 @@
                             margin-top: 10px;
                         }
                     }
-                    &.green{color: rgba(27, 70, 122, 0.844); font-weight: 600;}
+                    &.green{color: rgb(68, 68, 68); font-weight: 600;}
                     @include tablet{
                         font-size: 5vw;
                     }
