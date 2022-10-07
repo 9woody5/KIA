@@ -1,5 +1,6 @@
 $(function(){
 
+    //마우스 커서 효과
     let html = '';
     for (let index = 0; index < 3; index++){
         html += `<div class="cursor"></div>`
@@ -23,6 +24,7 @@ $(function(){
         })
     })
 
+    //하버 시 커서 효과
     $('[data-hover]').hover(function(e){
         $('.cursor').addClass('hover')
     }, function(){
@@ -43,6 +45,7 @@ $(function(){
         } 
     })
 
+    //로딩 화면 전후 
     const video = document.getElementById('main-video');
 
     load.addLabel('label')
@@ -50,9 +53,6 @@ $(function(){
     // .to('.page-load .logo',{opacity:0, delay:3, duration:2},'label')
     .to('.page-load',{delay:4, opacity:0, onComplete:function(){$('.page-load').remove(); mainTxt.play(); video.play();}},'label')
     load.play();
-
-
-
 
 
 
@@ -68,8 +68,8 @@ $(function(){
     // })
 
 
-    //햄버거 메뉴
 
+    //햄버거 메뉴
     const menuMotion = gsap.timeline({
         paused:true,
     })
@@ -180,7 +180,7 @@ $(function(){
     });
 
 
-
+    //데이터 영역
     //제이쿼리 방식으로 도전
     $('[data-data]').each(function(i,item){
         // console.log($(this).find('>*')); //직계자식
@@ -205,7 +205,6 @@ $(function(){
     })
 
     //discover 영역
-
     $('[data-y]').each(function(i,l){
         gsap.from(l,{
             scrollTrigger:{
@@ -228,7 +227,6 @@ $(function(){
 
 
     //sc-movement 영역
-
     ScrollTrigger.matchMedia({
     // large
     "(min-width: 1023px)": function() {
@@ -280,10 +278,6 @@ $(function(){
     // .to('.sc-movement .row2',{xPercent:50},'m1')
     // .to('.sc-movement .group-movement',{xPercent:-100},'m1')
 
-
-
-    //데이터 영역
-    //gsap
 
 
     // const motion1 = gsap.to('.main-txt p',{
