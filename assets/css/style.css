@@ -135,20 +135,25 @@ table {
 }
 
 .cursor {
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.64);
-  border-radius: 50%;
-  mix-blend-mode: difference;
   position: fixed;
+  font-size: 0;
   top: 0;
   left: 0;
-  transform: translate(-50%, -50%);
   z-index: 9999;
   pointer-events: none;
-  transition: width 0.2s, height 0.2s;
+  mix-blend-mode: difference;
 }
-.cursor.hover {
+.cursor .pointer {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.2s, height 0.2s;
+  background: rgba(255, 255, 255, 0.8);
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+.cursor.hover .pointer {
   width: 60px;
   height: 60px;
 }
@@ -812,6 +817,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .text-scroll {
+  width: 100%;
   line-height: 1;
   font-weight: 700;
   white-space: nowrap;
@@ -1037,9 +1043,14 @@ body::-webkit-scrollbar-thumb {
 }
 .sc-news .news-item .txt-wrap .title {
   font-size: 18px;
-  line-height: 1.2;
   font-weight: 700;
   margin: 0 0 1.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.2;
+  max-height: 2.4;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .sc-news .news-item .txt-wrap .title {
@@ -1057,19 +1068,22 @@ body::-webkit-scrollbar-thumb {
   display: block;
   font-size: 16px;
   font-weight: 300;
-  line-height: 20px;
   margin: 28px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.2;
+  max-height: 4.8;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .sc-news .news-item .txt-wrap .desc {
     font-size: 17px;
-    line-height: 1.2;
   }
 }
 @media (max-width: 767px) {
   .sc-news .news-item .txt-wrap .desc {
     font-size: 4vw;
-    line-height: 1.2;
     margin: 4vw 0 10vw;
   }
 }
@@ -1102,32 +1116,6 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   overflow: hidden;
-}
-.sc-movement .text-scroll {
-  width: 100%;
-  line-height: 1;
-  font-weight: 700;
-  white-space: nowrap;
-  font-size: clamp(63px, 20vw, 240px);
-  padding: 10vw 0;
-  overflow: hidden;
-}
-.sc-movement .text-scroll .txt-wrap em {
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(255, 255, 255, 0.8);
-  -webkit-text-fill-color: #000;
-  margin: 0 3vw;
-}
-.sc-movement .text-scroll .row1 {
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  justify-content: flex-start;
-}
-.sc-movement .text-scroll .row2 {
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  justify-content: flex-end;
 }
 .sc-movement .group-movement {
   position: absolute;
@@ -1206,9 +1194,14 @@ body::-webkit-scrollbar-thumb {
 }
 .sc-movement .movement-list .movement-item .content {
   font-size: 16px;
-  line-height: 22px;
   margin-top: 72px;
   font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 22px;
+  max-height: 132px;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .sc-movement .movement-list .movement-item .content {
@@ -1299,45 +1292,51 @@ body::-webkit-scrollbar-thumb {
 .sc-discover .swiper-slide:hover {
   background: rgba(39, 39, 39, 0.99);
 }
-.sc-discover .swiper-slide a figure {
+.sc-discover .swiper-slide figure {
   height: 272px;
   margin-bottom: 24px;
   flex: 1;
 }
 @media (max-width: 767px) {
-  .sc-discover .swiper-slide a figure {
+  .sc-discover .swiper-slide figure {
     height: 200px;
   }
 }
-.sc-discover .swiper-slide a figure img {
+.sc-discover .swiper-slide figure img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
 }
-.sc-discover .swiper-slide a .txt-box {
+.sc-discover .swiper-slide .txt-box {
   flex: 1;
   font-family: "KIA";
 }
-.sc-discover .swiper-slide a .txt-box .title {
+.sc-discover .swiper-slide .txt-box .title {
   display: block;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1;
   margin-bottom: 12px;
   font-weight: 600;
 }
 @media (max-width: 767px) {
-  .sc-discover .swiper-slide a .txt-box .title {
+  .sc-discover .swiper-slide .txt-box .title {
     font-size: 15px;
   }
 }
-.sc-discover .swiper-slide a .txt-box .desc {
+.sc-discover .swiper-slide .txt-box .desc {
   font-size: 32px;
   line-height: 42px;
   font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.2;
+  max-height: 3.6;
 }
 @media (max-width: 767px) {
-  .sc-discover .swiper-slide a .txt-box .desc {
+  .sc-discover .swiper-slide .txt-box .desc {
     font-size: 22px;
     line-height: 1.2;
   }

@@ -1,26 +1,14 @@
 $(function(){
 
     //마우스 커서 효과
-    let html = '';
-    for (let index = 0; index < 3; index++){
-        html += `<div class="cursor"></div>`
-    }
-    $('.body').append(html)
-
     $('body').mousemove(function(e){
-        x = e.clientX - 5;
-        y = e.clientY - 5;
-
-        if($('.cursor').hasClass('hover')){
-            x = e.clientX - 25;
-            y = e.clientY - 25;
-        }
+        x = e.clientX;
+        y = e.clientY;
 
         gsap.to('.cursor',{
             x:x,
             y:y,
             duration:0.1,
-            // stagger:0.1,
         })
     })
 
@@ -54,18 +42,6 @@ $(function(){
     .to('.page-load',{delay:4, opacity:0, onComplete:function(){$('.page-load').remove(); mainTxt.play(); video.play();}},'label')
     load.play();
 
-
-
-
-    // gsap.to('.page-load',{
-    //     delay:2,
-    //     opacity:0,
-    //     onComplete:function(){ //콜백
-    //         $('.page-load').remove()
-    //         mainTxt.play()
-    //     },
-
-    // })
 
 
 
@@ -183,7 +159,6 @@ $(function(){
     //데이터 영역
     //제이쿼리 방식으로 도전
     $('[data-data]').each(function(i,item){
-        // console.log($(this).find('>*')); //직계자식
         const child = $(this).find('>*');
 
         direction = ($(this).data('data') === 'left') ? -10 : 10;
@@ -192,8 +167,8 @@ $(function(){
         gsap.from(child,{
             scrollTrigger:{
                 trigger: item,
-                start:"top 90%", //트리거, 윈도우 시작점이 만나야 실행`
-                end:"bottom top", //bottom top은 기본값, scrub있을 때만 변경 필요
+                start:"top 90%", 
+                end:"bottom top", 
                 // markers:true,
                 // scrub:1
             },
@@ -209,10 +184,10 @@ $(function(){
         gsap.from(l,{
             scrollTrigger:{
                 trigger:l,
-                start:"0% 100%",
-                // end:"bottom 80%",
+                start:"0% 70%",
+                end:"center 70%",
                 // markers:true,
-                // scrub:1
+                scrub:1
             },
             opacity:0,
             yPercent:20,
@@ -229,12 +204,12 @@ $(function(){
     //sc-movement 영역
     ScrollTrigger.matchMedia({
     // large
-    "(min-width: 1023px)": function() {
+    "(min-width: 1024px)": function() {
         const movement = gsap.timeline({
             scrollTrigger:{
                 trigger: '.sc-movement',
-                start:"top top", //트리거, 윈도우 시작점이 만나야 실행`
-                end:"bottom 40%", //bottom top은 기본값, scrub있을 때만 변경 필요
+                start:"top top",
+                end:"bottom 40%", 
                 // markers:true,
                 scrub:1,
                 pin:true
@@ -248,8 +223,8 @@ $(function(){
         const movement = gsap.timeline({
             scrollTrigger:{
                 trigger: '.sc-movement',
-                start:"top top", //트리거, 윈도우 시작점이 만나야 실행`
-                end:"+=200%", //bottom top은 기본값, scrub있을 때만 변경 필요
+                start:"top top", 
+                end:"+=200%", 
                 // markers:true,
                 scrub:1,
                 pin:true
@@ -262,8 +237,8 @@ $(function(){
         const movement = gsap.timeline({
                     scrollTrigger:{
                         trigger: '.sc-movement',
-                        start:"top top", //트리거, 윈도우 시작점이 만나야 실행`
-                        end:"+=200%", //bottom top은 기본값, scrub있을 때만 변경 필요
+                        start:"top top", 
+                        end:"+=200%", 
                         // markers:true,
                         scrub:1,
                         pin:true
@@ -273,17 +248,22 @@ $(function(){
     }
     }); 
 
-    // cong.addLabel('m1')
-    // .to('.sc-movement .row1',{xPercent:-50},'m1')
-    // .to('.sc-movement .row2',{xPercent:50},'m1')
-    // .to('.sc-movement .group-movement',{xPercent:-100},'m1')
 
-
-
-    // const motion1 = gsap.to('.main-txt p',{
-    //     stagger:0.1,
-    //     yPercent:-100,
-    //     paused:true
-    // })
+    //sc-news 영역
+    $('[data-sequence]').each(function(i,l){
+        child = $(this).find('>*')
+        gsap.from(child,{
+            scrollTrigger:{
+                trigger:l,
+                start:"top 70%",
+                // end:"bottom 50%",
+                // markers:true,
+                // scrub:1
+            },
+            opacity:0,
+            yPercent:20,
+            stagger: 0.2,
+        })
+    })
 
 });

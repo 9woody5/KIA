@@ -1,19 +1,19 @@
 //말줄임
-// @mixin ellipsis {
-//     overflow: hidden;
-//     white-space: nowrap;
-//     text-overflow: ellipsis;
-// }
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 
-// @mixin multi-ellipsis($line,$lineHeight) {
-//     display: -webkit-box;
-//     -webkit-line-clamp: $line;
-//     -webkit-box-orient: vertical;
-//     overflow: hidden;
-//     line-height: $lineHeight;
-//     max-height: $line*$lineHeight;
-// }
+@mixin multi-ellipsis($line,$lineHeight) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: $lineHeight;
+    max-height: $line*$lineHeight;
+}
 
 
 /*반응형 화면 크기*/
