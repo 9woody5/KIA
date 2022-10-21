@@ -6,7 +6,6 @@
     clip:rect(0 0 0 0);
 }
 .page-load{
-    // display: none;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -30,6 +29,8 @@
 }
 
 .cursor{
+    @include tablet{display: none;}
+    @include mobile{display: none;}
     position: fixed;
     font-size: 0;
     top: 0; left: 0;
@@ -37,6 +38,8 @@
     pointer-events: none;
     mix-blend-mode: difference;
     .pointer{
+        @include tablet{display: none;}
+        @include mobile{display: none;}
         position: absolute;
         transform: translate(-50%, -50%);
         border-radius: 50%;
@@ -52,7 +55,11 @@
         }
     }
 }
-a{cursor: none;}
+a{
+    @include tablet{cursor: pointer;}
+    @include mobile{cursor: pointer;}
+    cursor: none;
+}
 body{
     font-family: 'Nekst', 'KIA';
     font-size: 14px;
@@ -61,6 +68,8 @@ body{
     background: #000;
     overflow-x: hidden;
     cursor: none;
+    @include tablet{cursor: default;}
+    @include mobile{cursor: default;}
     &.hidden{
         overflow: hidden;
         &::-webkit-scrollbar-button{

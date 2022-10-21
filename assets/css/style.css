@@ -143,6 +143,16 @@ table {
   pointer-events: none;
   mix-blend-mode: difference;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cursor {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .cursor {
+    display: none;
+  }
+}
 .cursor .pointer {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -153,6 +163,16 @@ table {
   height: 20px;
   border: none;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cursor .pointer {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .cursor .pointer {
+    display: none;
+  }
+}
 .cursor.hover .pointer {
   width: 60px;
   height: 60px;
@@ -160,6 +180,16 @@ table {
 
 a {
   cursor: none;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  a {
+    cursor: pointer;
+  }
+}
+@media (max-width: 767px) {
+  a {
+    cursor: pointer;
+  }
 }
 
 body {
@@ -170,6 +200,16 @@ body {
   background: #000;
   overflow-x: hidden;
   cursor: none;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    cursor: default;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    cursor: default;
+  }
 }
 body.hidden {
   overflow: hidden;
@@ -258,7 +298,7 @@ body::-webkit-scrollbar-thumb {
   transform: translateY(-100%);
 }
 .header .header-inner.background {
-  background: rgb(5, 5, 5);
+  background: rgba(5, 5, 5, 0.784);
 }
 .header .logo {
   width: 90px;
