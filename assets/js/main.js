@@ -33,6 +33,19 @@ $(function(){
         } 
     })
 
+    //video safari 재생
+
+    if(videoSrc != '') {
+    	if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    		video.src = videoSrc;
+    		$('#video').attr('playsinline','');	//이거추가
+
+    	} else if (Hls.isSupported()) {
+    		hls1.loadSource(videoSrc);
+    		hls1.attachMedia(video);
+    	}
+    }
+
     //로딩 화면 전후 
     const video = document.getElementById('main-video');
 
