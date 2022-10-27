@@ -25,6 +25,7 @@ $(function(){
         onStart: function(){
             $('body').addClass('hidden')
             $('.cursor').hide();
+            $('html, body').animate({ scrollTop: 0}, 'slow');
         },
         onComplete: function(){
             $('body').removeClass('hidden')
